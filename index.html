@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html ng-app="app1" ng-init = "person = { fName: 'Martin', lName: 'Pettersson' }; ">
+<html ng-app="app1" ng-init = "person = { fName: 'Martin', lName: 'Pettersson' }; 
+ list =[1,2,3]; capitals = [ {city: 'Stockholm', country: 'Sweden'}, {city: 'New York', country: 'USA'}, {city: 'Bruxelles', country: 'Belgium'} ];">
 <head>
 
 	<title>TODO MVC</title>
@@ -16,13 +17,31 @@
 	<div ng-controller="ctrl1">
 		<span>Values:</span>
 		<input type="text" ng-model="first" />
-		<input type="text" ng-model="second" />
+		<input type="text" ng-model="second" />	
 
 		<button ng-click="updateValue()">Sum</button>
+
+		<p> 
+			Your first value is {{first}}.
+		</p>
+
+		<p> 
+			Your second value is {{second}}.
+		</p>
+
+		<p> 
+			{{person.fName}} {{person.lName}}, you entered {{first}} and {{second}}.
+		</p>
+
 		<br><br>
 		{{calculation}}
-		{{calculation}}
-		
+
+		<ul>
+			<li ng-repeat="capital in capitals">
+				{{'City: ' + capital.city + ', Country: ' + capital.country}}
+			</li>
+		</ul>
+
 	</div>
 
 	Write some text in textbox:
