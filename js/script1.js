@@ -1,13 +1,27 @@
-var app1 = angular.module('app1', []);
+var app = angular.module('todoApp', []);
 
-app1.controller('ctrl1', function($scope) {
-	$scope.first = 1;
-	$scope.second = 1;
+app.controller('todoController', function($scope){
+  $scope.todoMessage = '';
+  $scope.todoStatus = '';
+ 
+  $scope.todoList=[
+    
+    {todoMessage:"Go out", statusMessage:"Done"},
+    {todoMessage:"Buy food", statusMessage:"On going"},
+    {todoMessage:"Finish demo", statusMessage:"Done"}
+    ];    
+    
+    $scope.newItem = function(todoMessage, statusMessage){
+      if (this.todoMessage === '') 
+        return;   
+       $scope.todoList.push({
+    	   todoMessage: todoMessage,
+    		 statusMessage: statusMessage
+    	});
 
-	$scope.todoList = ['köpa mat', 'gå hem', 'programmera'];
+    	this.todoMessage= "";
+    	this.todoStatus= "";
 
-	$scope.updateValue = function() {
-		$scope.calculation = $scope.first + ' + ' + $scope.second
-			+ ' = ' + (+$scope.first + +$scope.second);
-	};
-});
+    	this.showForm = false;
+    }
+})

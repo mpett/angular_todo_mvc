@@ -1,56 +1,43 @@
-
 <!DOCTYPE html>
-<html ng-app="app1" ng-init = "person = { fName: 'Martin', lName: 'Pettersson' }; 
- list =[1,2,3]; capitals = [ {city: 'Stockholm', country: 'Sweden'}, {city: 'New York', country: 'USA'}, {city: 'Bruxelles', country: 'Belgium'} ];">
+<html>
+
 <head>
-
-	<title>TODO MVC</title>
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-	<script type="text/javascript"
-		src="js/script1.js"></script>
-
+  <meta charset="ISO-8859-1">
+  <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/script1.js"></script>
 </head>
 
-<body>
-	
-	<div ng-controller="ctrl1">
-		<span>Values:</span>
-		<input type="text" ng-model="first" />
-		<input type="text" ng-model="second" />	
+<body ng-app="todoApp">
+  <div class="" ng-controller="todoController">
+    <form ng-submit="newItem(todoMessage, todoStatus)" ng-show="showForm">
 
-		<button ng-click="updateValue()">Sum</button>
+      Todo
+      <input type="text" ng-model="todoMessage" />
+      <br />
+      <br />Status
+      <input type="text" ng-model="todoStatus" /> 
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <br />
+      <br />
+      <br />
+      <br />
+    </form>
 
-		<p> 
-			Your first value is {{first}}.
-		</p>
-
-		<p> 
-			Your second value is {{second}}.
-		</p>
-
-		<p> 
-			{{person.fName}} {{person.lName}}, you entered {{first}} and {{second}}.
-		</p>
-
-		<br><br>
-		{{calculation}}
-
-		<ul>
-			<li ng-repeat="capital in capitals">
-				{{'City: ' + capital.city + ', Country: ' + capital.country}}
-			</li>
-		</ul>
-
-	</div>
-
-	Write some text in textbox:
-	<input type="text" ng-model="sometext" />
-
-	<h1>Hello {{ sometext }}</h1>
+    <button ng-click="showForm=true; ">Add new</button>
+    <ul>
 
 
-	
+
+      <li></li>
+      <li ng-repeat="element in todoList">
+        {{element.todoMessage}} {{element.statusMessage}} 
+      </li>
+    </ul>
+  </div>
 </body>
 
 </html>
