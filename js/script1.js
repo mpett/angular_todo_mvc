@@ -24,4 +24,9 @@ app.controller('todoController', function($scope){
 
     	this.showForm = false;
     }
+
+    $scope.remove = function(todoItem) { 
+      var index = $scope.todoList.indexOf(todoItem);
+      $scope.todoList.splice(index, 1);     
+    }
 })

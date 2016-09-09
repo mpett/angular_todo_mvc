@@ -34,7 +34,7 @@
 
       <li></li>
       <li ng-repeat="element in todoList">
-        {{element.todoMessage}} {{element.statusMessage}} 
+        {{element.todoMessage}} {{element.statusMessage}} <button ng-click="remove(element)">Delete</button>
       </li>
     </ul>
   </div>
