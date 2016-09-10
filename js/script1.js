@@ -21,7 +21,6 @@ app.controller('todoController', function($scope){
 
     	this.todoMessage= "";
     	this.todoStatus= "";
-
     	this.showForm = false;
     }
 

@@ -1,43 +1,30 @@
 <!DOCTYPE html>
+
 <html>
+  <head>
+    <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/script1.js"></script>
+  </head>
 
-<head>
-  <meta charset="ISO-8859-1">
-  <script type="text/javascript"
-    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
-  <script src="js/script1.js"></script>
-</head>
+  <body ng-app="todoApp">
+    <div class="" ng-controller="todoController">
+      
+      <form ng-submit="newItem(todoMessage, todoStatus)" ng-show="showForm">
+        <br /> Todo <input type="text" ng-model="todoMessage" />
+        <br /> Status <input type="text" ng-model="todoStatus" /> 
+        <br /> <input type="submit" value="Submit" />
+      </form>
 
-<body ng-app="todoApp">
-  <div class="" ng-controller="todoController">
-    <form ng-submit="newItem(todoMessage, todoStatus)" ng-show="showForm">
+      <button ng-click="showForm=true; ">Add New</button>
+      
+      <ul>
+        <li ng-repeat="element in todoList">
+          {{element.todoMessage}} <b>{{element.statusMessage}}</b>
+           <button ng-click="remove(element)">Delete</button>
+        </li>
+      </ul>
 
-      Todo
-      <input type="text" ng-model="todoMessage" />
-      <br />
-      <br />Status
-      <input type="text" ng-model="todoStatus" /> 
-      <br />
-      <br />
-      <input type="submit" value="Submit" />
-      <br />
-      <br />
-      <br />
-      <br />
-    </form>
-
-    <button ng-click="showForm=true; ">Add new</button>
-    <ul>
-
-
-
-      <li></li>
-      <li ng-repeat="element in todoList">
-        {{element.todoMessage}} {{element.statusMessage}} <button ng-click="remove(element)">Delete</button>
-      </li>
-    </ul>
-  </div>
-</body>
-
+    </div>
+  </body>
 </html>
