@@ -29,6 +29,7 @@
               <option value="High">High</option>
             </select> 
           </div>
+          
           <div class="form-group">
             <label for="issueDescInput">Assigned To</label>
             <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter responsible ...">
@@ -45,6 +46,9 @@
       <div class="footer">
       </div>
     </div>
+
+    <a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a>
+    <a href="#" class="btn btn-danger" onclick="deleteIssue(\''+id+'\')">Delete</a>
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://chancejs.com/chance.min.js"></script>
